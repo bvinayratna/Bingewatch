@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash 
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
-from django.contrib import messages 
-from .forms import SignUpForm, EditProfileForm 
+import django
+from django.shortcuts import redirect, render
+from .models import user
+from django.http import HttpResponse
 
 
 
@@ -13,66 +12,33 @@ def layout(request):
 def home(request):
     return render(request, "app/home.html")
 
-def login_user (request):
-	if request.method == 'POST': #if someone fills out form , Post it 
-		username = request.POST['username']
-		password = request.POST['password']
-		user = authenticate(request, username=username, password=password)
-		if user is not None:# if user exist
-			login(request, user)
-			messages.success(request,('Youre logged in'))
-			return redirect('homepage') #routes to 'home' on successful login  
-		else:
-			messages.success(request,('Error logging in'))
-			return redirect('layout') #re routes to login page upon unsucessful login
+def login(request):
+    if request.method=='POST':
+        if request.POST.get('username') and request.POST.get('password'):
+            try:
+                User = user.objects.get(username=request.POST.get('username'))
+            except:
+                User=None
+                User = user.objects.filter(username=request.POST.get('username'))
+            if User:
+                if User.password==request.POST.get('password'):
+                    return HttpResponse("Login Successful")
+                else: 
+                    return redirect('login')
+            else: 
+                    return redirect('signup')
+    else:
+        return render(request, "app/login.html")
+
+def signup(request):
+	if request.method=='POST':
+		if request.POST.get('username') and request.POST.get('password') and request.POST.get('fullname') and request.POST.get('email'):
+			User=user()
+			User.username=request.POST.get('username')
+			User.password=request.POST.get('password')
+			User.fullname=request.POST.get('fullname')
+			User.email=request.POST.get('email')
+			User.save()
+			return redirect('login')
 	else:
-		return render(request, 'app/login.html', {})
-
-def logout_user(request):
-	logout(request)
-	messages.success(request,('Youre now logged out'))
-	return redirect('layout')
-
-def register_user(request):
-	if request.method =='POST':
-		form = SignUpForm(request.POST)
-		if form.is_valid():
-			form.save()
-			username = form.cleaned_data['username']
-			password = form.cleaned_data['password1']
-			user = authenticate(username=username, password=password)
-			login(request,user)
-			messages.success(request, ('Youre now registered'))
-			return redirect('homepage')
-	else: 
-		form = SignUpForm() 
-
-	context = {'form': form}
-	return render(request, 'app/register.html', context)
-
-def edit_profile(request):
-	if request.method =='POST':
-		form = EditProfileForm(request.POST, instance= request.user)
-		if form.is_valid():
-			form.save()
-			messages.success(request, ('You have edited your profile'))
-			return redirect('homepage')
-	else: 		#passes in user information 
-		form = EditProfileForm(instance= request.user) 
-
-	context = {'form': form}
-	return render(request, 'app/edit_profile.html', context)
-
-def change_password(request):
-	if request.method =='POST':
-		form = PasswordChangeForm(data=request.POST, user= request.user)
-		if form.is_valid():
-			form.save()
-			update_session_auth_hash(request, form.user)
-			messages.success(request, ('You have edited your password'))
-			return redirect('homepage')
-	else: 		#passes in user information 
-		form = PasswordChangeForm(user= request.user) 
-
-	context = {'form': form}
-	return render(request, 'app/change_password.html', context)
+		return render(request, "app/signup.html")

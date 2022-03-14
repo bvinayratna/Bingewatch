@@ -1,0 +1,27 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+{% block content %}
+<link type="text/css" rel="stylesheet" href={% static 'app/signup.css' %}>
+<div class="main">
+    <form method="POST">
+        {% csrf_token %}
+    <center>
+     <h1>Signup page</h1><br/><br/>
+     <input class="input_field" type="text" name="fullname" placeholder="Enter full Name"></input>
+     <br />
+     <br />
+     <input class="input_field" type="text" name="username" placeholder="Enter Username"></input>
+     <br />
+     <br />
+     <input class="input_field" type="text" name="email" placeholder="Enter email"></input>
+     <br />
+     <br />
+     <input class="input_field" type="password" name="password" placeholder="Enter password"></input>
+     <br />
+     <br />
+     <input class="input_field_submit" type="submit" value="submit"></input>
+    </center>
+</form>
+   </div>
+{% endblock %}

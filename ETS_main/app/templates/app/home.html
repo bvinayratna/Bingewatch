@@ -1,0 +1,22 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+
+{% load static %}
+<div class="home_body">
+<link rel="stylesheet"
+      type="text/css"
+      href="{% static 'app/home.css' %}">
+
+<h1> Home page</h1>
+
+{% if user.is_authenticated %}
+	<p>Name: {{user.first_name}} {{ user.last_name}}</p>
+	<p>Username: {{user.username}}</p>
+	
+	<p>Email: {{user.email}}</p>
+
+{% endif %}
+</div>
+
+{% endblock %}

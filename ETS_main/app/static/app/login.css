@@ -1,0 +1,48 @@
+.main_body{
+    display: flex;
+    margin: auto;
+    width: fit-content;
+}
+.iframe{
+    margin-top: 30px;
+}
+.login_box{
+    background-color: rgba(3, 3, 35, 0.898);
+    width: 350px;
+    border-radius: 7px;
+    padding: 15px;
+    height: 400px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+}
+.login_box>form>.login_field{
+    border-radius: 7px;
+    padding: 15px;
+}
+.login_box>form>.login_field>input{
+    border-radius: 6px;
+    padding: 15px;
+    width: 300px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.login_box>form>h2{
+    color: white;
+}
+.login_box>form>div>button{
+    padding: 12px;
+    border-radius: 7px;
+    width: 300px;
+    margin-top: 15px;
+}
+#register_box{
+    background-color: rgba(3, 3, 35, 0.898);
+    width: 350px;
+    border-radius: 7px;
+    padding: 15px;
+    height: 400px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+}

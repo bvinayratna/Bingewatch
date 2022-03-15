@@ -1,3 +1,31 @@
 .home_body{
     height: 100vh;
+    display: flex;
+}
+.left{
+    background-color: rgb(3, 3, 35);
+    opacity: 0.9;
+    color: white;
+    flex: 0.15;
+    border-top: 1px solid gray;
+}
+.right{
+    background-color: rgb(3, 3, 35);
+    opacity: 0.8;
+    color: white;
+    flex: 0.85;
+}
+.left >ul>li{
+    text-decoration: none;
+    color: white;
+}
+.right > ul >li {
+    align-items: center;
+    width: 250px;
+}
+.right>ul>li>a{
+    color: white;
+    text-decoration: none;
+    padding: 7px, 35px;
+    margin-left: 15px;
 }

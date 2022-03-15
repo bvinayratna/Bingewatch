@@ -1,7 +1,9 @@
+from pyexpat.errors import messages
+import re
 import django
 from django.shortcuts import redirect, render
 from .models import user
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 
@@ -22,7 +24,7 @@ def login(request):
                 User = user.objects.filter(username=request.POST.get('username'))
             if User:
                 if User.password==request.POST.get('password'):
-                    return HttpResponse("Login Successful")
+                    return redirect('homepage')
                 else: 
                     return redirect('login')
             else: 

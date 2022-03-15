@@ -3,17 +3,14 @@
 <body id="body">
     <nav class="navbar">
         <div class="items">
-            <div class="left">
+            <div class="left_nav">
                 <a class="logo_link" href="/">
                     <h2>BINGEWATCH</h2>
                 </a>
             </div>
-            <div class="right">
+            <div class="right_nav">
                     <ul>
                         {% if user.is_authenticated %}
-                            <li >
-                                <a class="link" aria-current="page" href="/home">Home</a>
-                            </li>
                             <li >
                                 <a class="link" href="{% url 'logout' %}">Logout</a>
                             </li>

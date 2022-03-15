@@ -3,20 +3,22 @@
 {% block content %}
 
 {% load static %}
-<div class="home_body">
 <link rel="stylesheet"
       type="text/css"
       href="{% static 'app/home.css' %}">
+<div class="home_body">
+	<div class="left">
+		<ul>
+			<li><a href="/home">Home</a></li>
+			<li><a href="#">Watch</a></li>
+			<li><a href="#">Listen</a></li>
+			<li><a href="#">Play</a></li>
+		</ul>
+	</div>
+	<div class="right">
+		<h3>Hi, {{User.username}}</h3>
+	</div>
 
-<h1> Home page</h1>
-
-{% if user.is_authenticated %}
-	<p>Name: {{user.first_name}} {{ user.last_name}}</p>
-	<p>Username: {{user.username}}</p>
-	
-	<p>Email: {{user.email}}</p>
-
-{% endif %}
 </div>
 
 {% endblock %}

@@ -9,14 +9,14 @@
 <div class="home_body">
 	<div class="left">
 		<ul>
-			<li><a href="/home">Home</a></li>
-			<li><a href="#">Watch</a></li>
-			<li><a href="#">Listen</a></li>
-			<li><a href="#">Play</a></li>
+			<li><a class="home_link" href="/home">Home</a></li>
+			<li><a class="home_link" href="#">Watch</a></li>
+			<li><a class="home_link" href="#">Listen</a></li>
+			<li><a class="home_link" href="#">Play</a></li>
 		</ul>
 	</div>
 	<div class="right">
-		<h3>Hi, {{User.username}}</h3>
+		<h3>Welcome, {{request.session.username}}</h3>
 	</div>
 
 </div>

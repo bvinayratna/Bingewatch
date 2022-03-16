@@ -5,17 +5,14 @@
         <div class="items">
             <div class="left_nav">
                 <a class="logo_link" href="/">
-                    <h2>BINGEWATCH</h2>
+                    <h2>Oho</h2>
                 </a>
             </div>
             <div class="right_nav">
                     <ul>
-                        {% if user.is_authenticated %}
+                        {% if request.session.username %}
                             <li >
                                 <a class="link" href="{% url 'logout' %}">Logout</a>
-                            </li>
-                            <li >
-                                <a class="link" href="{% url 'edit_profile' %}">Edit Profile</a>
                             </li>
                         {% else %}
                             <li >

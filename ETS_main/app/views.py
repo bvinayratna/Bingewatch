@@ -5,6 +5,11 @@ from django.shortcuts import redirect, render
 from .models import user
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate,login
+from sqlalchemy import create_engine
+
+import pymysql
+
+import pandas as pd
 
 
 
@@ -61,3 +66,20 @@ def logout(request):
     except KeyError:
         pass
     return redirect('/')
+
+def exportcsv(request):
+    sqlEngine = create_engine('mysql+pymysql://ets:ets%40sdp2@127.0.0.1/ets', pool_recycle=3600)
+
+    dbConnection = sqlEngine.connect()
+
+    frame = pd.read_sql("select id, fullname, username, email from ets.app_user", dbConnection);
+
+    pd.set_option('display.expand_frame_repr', False)
+
+    print(frame)
+
+    frame.to_csv('out.csv', index=False)
+
+    dbConnection.close()
+
+    return redirect('homepage')

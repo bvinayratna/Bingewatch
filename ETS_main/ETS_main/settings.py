@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'ETS_main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ets_database',
-        'USER': 'vinayratna',
-        'PASSWORD': 'vinAy@2003',
+        'NAME': 'ets',
+        'USER': 'ets',
+        'PASSWORD': 'ets@sdp2',
         'HOST': 'localhost',
         'PORT': '3306',
     }

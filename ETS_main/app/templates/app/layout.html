@@ -12,14 +12,14 @@
                     <ul>
                         {% if request.session.username %}
                             <li >
-                                <a class="link" href="{% url 'logout' %}">Logout</a>
+                                <strong><a class="link" href="{% url 'logout' %}">Logout</a></strong>
                             </li>
                         {% else %}
                             <li >
-                                <a class="link" href="{% url 'login' %}">Login</a>
+                                <strong><a class="link" href="{% url 'login' %}">Login</a></strong>
                             </li>
                             <li >
-                                <a class="link" href="{% url 'signup' %}">Register</a>
+                                <strong><a class="link" href="{% url 'signup' %}">Register</a></strong>
                             </li>
                         {% endif %}
                     </ul>

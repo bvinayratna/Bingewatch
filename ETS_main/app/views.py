@@ -69,17 +69,18 @@ def logout(request):
 
 def exportcsv(request):
     sqlEngine = create_engine('mysql+pymysql://ets:ets%40sdp2@127.0.0.1/ets', pool_recycle=3600)
-
     dbConnection = sqlEngine.connect()
-
-    frame = pd.read_sql("select id, fullname, username, email from ets.app_user", dbConnection);
-
-    pd.set_option('display.expand_frame_repr', False)
-
+    frame = pd.read_sql("select id, fullname, username, email from ets.app_user", dbConnection)
     print(frame)
-
     frame.to_csv('out.csv', index=False)
-
     dbConnection.close()
-
     return redirect('homepage')
+
+def watch(request):
+    return render(request, "app/watch.html")
+
+def listen(request):
+    return render(request, "app/listen.html")
+
+def play(request):
+    return render(request, "app/play.html")

@@ -10,13 +10,15 @@
 	<div class="left">
 		<ul>
 			<li><a class="home_link" href="/home">Home</a></li>
-			<li><a class="home_link" href="#">Watch</a></li>
-			<li><a class="home_link" href="#">Listen</a></li>
-			<li><a class="home_link" href="#">Play</a></li>
+			<li><a class="home_link" href="/watch">Watch</a></li>
+			<li><a class="home_link" href="/listen">Listen</a></li>
+			<li><a class="home_link" href="/play">Play</a></li>
 		</ul>
 	</div>
 	<div class="right">
+		{% block content1 %}
 		<h3>Welcome, {{request.session.username}}</h3>
+		{% endblock %}
 	</div>
 
 </div>

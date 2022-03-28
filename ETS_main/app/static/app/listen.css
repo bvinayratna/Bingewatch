@@ -1,0 +1,22 @@
+.song_body{
+    padding: 5px;
+    margin-top: 15px;
+    display: flex;
+}
+.listenbody{
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+}
+.search_bar{
+    padding: 10px;
+    width: 25vw;
+}
+.search_btn{
+    padding: 10px;
+    width: auto;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}

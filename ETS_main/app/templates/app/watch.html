@@ -1,7 +1,46 @@
 {% extends 'app/home.html' %}
-
+{% load static %}
 {% block content1 %}
-
-<h1>Watch movies and videos here...</h1>
-
+    <link type="text/css" rel="stylesheet" href="{% static 'app/watch.css' %}">
+    <form method="POST">
+        <div class="watch_body">
+            {% csrf_token %}
+            <input name="search"
+                   class="search_bar"
+                   type="text"
+                   placeholder="Search here...">
+        </input>
+        &ensp;
+        <button name="submit" value="search" type="submit" class="search_btn">Search</button>
+        &ensp;
+        <button name="submit" value="lucky" type="submit" class="search_btn">Trending</button>
+    </div>
+</form>
+{% if query %}
+    <p>
+        Results for "{{ query }}"
+    </p>
+{% endif %}
+<div class="video_body">
+    {% for video in videos %}
+        <div class="card">
+            <div class="card_top">
+                <img src="{{ video.thumbnail }}">
+            </img>
+        </div>
+        <div class="card_title">
+            <p>
+                {{ video.title }}
+            </p>
+        </div>
+        <div class="botton">
+            <div class="bottom_left">
+                <a href={{ video.url }}>
+                Watch now</a>
+            </div>
+            <div class="bottom_right">{{ video.duration }}</div>
+        </div>
+    </div>
+{% endfor %}
+</div>
 {% endblock content1 %}

@@ -1,7 +1,8 @@
 {% extends 'app/home.html' %}
-
+{% load static %}
 {% block content1 %}
-
-<h1>play games here...</h1>
-
+<link type="text/css" rel="stylesheet" href="{% static 'app/play.css' %}">
+<div class="gamebody">
+<iframe width="100%" height="100%" allow="fullscreen; autoplay; encrypted-media" src="https://emulatorgames.online" frameborder="10" sandbox="allow-same-origin allow-forms allow-scripts allow-pointer-lock allow-orientation-lock allow-popups" scrolling="no"></iframe>
+</div>
 {% endblock content1 %}

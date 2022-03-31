@@ -1,5 +1,6 @@
+from ssl import ALERT_DESCRIPTION_ACCESS_DENIED
 from django.shortcuts import redirect, render
-from .models import user
+from .models import liked_songs, user
 from sqlalchemy import create_engine
 import requests
 import pymysql
@@ -7,6 +8,7 @@ import pandas as pd
 from django.conf import settings
 from isodate import parse_duration
 import requests
+import pymsgbox
 
 
 # Create your views here.
@@ -54,7 +56,7 @@ def signup(request):
 			User.save()
 			return redirect('login')
 	else:
-		return render(request, "app/signup.html")
+         return render(request, "app/signup.html")
 
 def logout(request):
     try:
@@ -140,7 +142,8 @@ def listen(request):
 
         headers = {
             "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-            "X-RapidAPI-Key": "496a72d3e7msh8ba8211fb1028c7p10e26ejsn8bad8a5d21b8"
+            "X-RapidAPI-Key": "496a72d3e7msh8ba8211fb1028c7p10e26ejsn8bad8a5d21b8",
+            #"X-RapidAPI-Key": "c23d11f8c0msh3027f0b2773f8d7p12e000jsn24118f54b6ed"
         }
 
         response = requests.request("GET", url, headers=headers, params=querystring)
@@ -160,7 +163,6 @@ def listen(request):
                 'artist': result['data']['artists']['items'][0]['profile']['name']
             }
             tracks.append(track_data)
-
     context={
         'tracks': tracks,
     }

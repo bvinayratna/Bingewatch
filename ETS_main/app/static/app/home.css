@@ -15,19 +15,22 @@
     flex: 0.85;
     padding: 15px;
 }
+.left>ul{
+    margin-top: 15px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
+}
 .left >ul>li{
     text-decoration: none;
     color: white;
     list-style-type: none;
-    align-items: center;
-    padding: 10px;
     margin-top: 10px;
+    padding: 5px 10px 5px 10px;
 }
 .left>ul>li>a{
     color: white;
     text-decoration: none;
-    padding: 7px, 35px;
-    margin-left: 15px;
+    padding: 5px 10px 5px 10px;
 }
 .home_link{
     color: white;
@@ -37,6 +40,5 @@
 .home_link:hover{
     background-color: white;
     color: rgb(3, 3, 35);
-    padding: 7px 35px;
-    transition: 0.25s;
+    padding: 8px 50px 8px 10px;
 }

@@ -4,30 +4,31 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 #body{
-    background: linear-gradient(rgba(5, 0, 0, 0.238), rgba(255, 255, 255, 0.183)), url("/static/app/movies.png") no-repeat;
-    background-size: cover;
+    background-color: black;
 }
 .navbar{
     text-align: center;
-    padding: 15px;
+    padding: 11px;
     background-color: black;
     opacity: 0.9;
+    margin-top: 3px;
 }
 .items{
     display: flex;
 }
-.link, strong>.link{
+.link{
     background-color: red;
     color: white;
     padding: 7px 35px;
     border-radius: 5px;
     width: 7px, 35px;
     text-decoration: none;
-    margin-left: 15px;
+    margin-left: 10px;
+    font-weight: 500;
     
 }
 .logo_link{
-    color: white;
+    color: red;
     text-decoration: none;
 }
 .link:hover{
@@ -39,6 +40,7 @@
 }
 .left_nav{
     flex: 0.13;
+    margin-left: 20px;
 }
 .right_nav {
     flex: 0.85;
@@ -68,3 +70,44 @@
 .error_message>button{
     border: 2px soid black;
 }
+.our-story-card {
+    position: relative;
+    border-bottom: 8px solid #222;
+    padding: 30px 5%;
+    margin-bottom: 0;
+    background: 0 0;
+    color: #fff;
+
+}
+.animation-card .our-story-card-img-container {
+    width: 48%;
+    height: 100%;
+    display: flex;
+    -webkit-box-flex: 0;
+    flex: 0 1 auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.animation-card .animation-card-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.animation-card.watchOnDevice .our-story-card-img, .animation-card.watchOnTv .our-story-card-img {
+    position: relative;
+    z-index: 2;
+    height: 80%;
+}
+.img {
+    max-width: 80%;
+    height: 80%;
+    border: 0;
+}
+#body::-webkit-scrollbar {
+    display: none;
+  }

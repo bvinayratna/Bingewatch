@@ -15,11 +15,9 @@ class liked_songs(models.Model):
     album_id=models.CharField(max_length=250,null=False, blank=False)
 
 class search_history(models.Model):
-    username=models.ForeignKey(user, to_field='username',on_delete=models.PROTECT, db_column='username')
+    username=models.CharField(max_length=250, null=False, blank=False, unique=True)
     search_query=models.CharField(max_length=250, null=False, blank=False)
-    
 
 class videos_watched(models.Model):
     video_id=models.CharField(max_length=250, null=False, blank=False)
-    username=models.ForeignKey(user, to_field='username',on_delete=models.PROTECT, db_column='username')
-    
+    username=models.CharField(max_length=250, null=False, blank=False, unique=True)

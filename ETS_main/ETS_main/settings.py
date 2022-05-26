@@ -121,9 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-#YOUTUBE_DATA_API_KEY = "AIzaSyAJ_yyk5q9daJ5zEKFItJQ7w6Xfg2EDBgk"
-#YOUTUBE_DATA_API_KEY = "AIzaSyD464yJBk7OGNSpkIKHruO8mOgdesGzhbk"
-YOUTUBE_DATA_API_KEY = "AIzaSyDJqdLqFRwhys09veE_nRQ1-2t9w1NhCvo"
+#YOUTUBE_DATA_API_KEY = ""
+#YOUTUBE_DATA_API_KEY = ""
+YOUTUBE_DATA_API_KEY = "A"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -134,5 +134,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'bvinayratna@gmail.com'
-EMAIL_HOST_PASSWORD = 'bvinAyrAtnA@2003'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
